@@ -1,5 +1,5 @@
-SHELL := /bin/bash
 .SECONDARY:
+SHELL := /bin/bash
 PATH:= ../bin/:${PATH}
 
 ### 1.1 BIN INSTALLATION
@@ -13,7 +13,7 @@ ONTO_SENSE_INVENTORY=../uwsd/data/ontonotes_v5/data/files/data/english/metadata/
 SEED=1
 
 ontonotes-stats.txt:
-	ontonotes-stats.py ${ONTO_ANNOTATION} ${ONTO_SENSE_INVENTORY} #| tee $@
+	ontonotes-stats.py ${ONTO_ANNOTATION} ${ONTO_SENSE_INVENTORY} | tee $@
 
 words-filtered%.txt:
 	type-filtering.py ${ONTO_ANNOTATION} ${ONTO_SENSE_INVENTORY} 1 $* > $@
